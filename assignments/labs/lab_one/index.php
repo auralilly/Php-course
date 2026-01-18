@@ -6,3 +6,4 @@ $myCar = new Car("Toyota", "Camry", 2020);
 // Display the car information
 echo "<h1>My Car</h1>";
 echo "<p>" . $myCar->getInfo() . "</p>";
+?>
