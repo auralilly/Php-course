@@ -1,5 +1,7 @@
 <?php 
 require_once 'car.php'; 
+
+require_once 'connect.php';
 // Instantiate a new Car object
 $myCar = new Car("Toyota", "Camry", 2020);
 
