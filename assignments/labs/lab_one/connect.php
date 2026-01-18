@@ -1,23 +1,23 @@
-<?php
-$host     = 'localhost';
-$dbname   = 'lab_one_db';          // ← your database name
-$username = 'root';                // default XAMPP/WAMP username
-$password = '';                    // default XAMPP/WAMP has no password
+<?php 
+declare(strict_types=1); 
 
-// DSN (Data Source Name) string for PDO
-$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+$host = "localhost"; //hostname
+$db = "lab_one"; //database name
+$user = "root"; //username
+$password = ""; //password
+
+//points to the database
+$dsn = "mysql:host=$host;dbname=$db";
+
+//try to connect, if connected echo a yay!
 try {
-    // Create PDO connection
-    $pdo = new PDO($dsn, $username, $password);
-    
-    // Set PDO to throw exceptions on errors (best practice)
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-} catch (PDOException $e) {
-    echo "<h2 style='color:red;'>Connection failed!</h2>";
-    echo "<p>Error: " . $e->getMessage() . "</p>";
-    // Stop script execution
-    exit();
+   $pdo = new PDO ($dsn, $user, $password); 
+   $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+   echo "<p> YAY CONNECTED! </p>"; 
+}
+//what happens if there is an error connecting 
+catch(PDOException $e) {
+    die("Database connection failed: " . $e->getMessage()); 
 }
 ?>
 
